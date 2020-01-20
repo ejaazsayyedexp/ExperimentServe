@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>First.ejs</title>
+</head>
+<body>
+    
+<%-include ("partials/goto.ejs") %> 
+
+    <%- include ("partials/SPCC.ejs") %>
+    <%- include ("partials/CSS.ejs") %>
+    <%- include ("partials/SE.ejs") %>
+    <%- include ("partials/DWM.ejs") %> 
+
+    <script>
+        var opt = document.getElementById('sel')
+        function func(data){
+            var spcc= document.getElementById('spcc')
+            var css= document.getElementById('css')
+            var dwm= document.getElementById('dwm')
+            var se= document.getElementById('se')
+            //data = data
+            if(data=='SPCC'){
+            spcc.style.visibility = "visible"
+            css.style.visibility = "hidden"
+            dwm.style.visibility = "hidden"
+            se.style.visibility = "hidden"
+        }
+        if(data=='CSS'){
+            css.style.visibility = "visible"
+            spcc.style.visibility = "hidden"
+            dwm.style.visibility = "hidden"
+            se.style.visibility = "hidden"
+
+        }
+        if(data=='DWM'){
+            dwm.style.visibility = "visible"
+            spcc.style.visibility = "hidden"
+            css.style.visibility = "hidden"
+            se.style.visibility = "hidden"
+        }
+        if(data=='SE'){
+            se.style.visibility = "visible"
+            spcc.style.visibility = "hidden"
+            css.style.visibility = "hidden"
+            dwm.style.visibility = "hidden"
+        }
+        
+       /* Window.onload = function(){
+        console.log(data)
+        if(data==='SPCC'){
+            document.getElementById('spcc').style.visibility = "visible"
+        }
+    }*/
+        }
+        
+    </script>
+</body>
+</html>

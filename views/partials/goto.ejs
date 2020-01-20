@@ -1,0 +1,7 @@
+    
+    <%var lab = ['NONE','SPCC','CSS','SE','DWM']%>
+    <select id="sel" onchange="func(this.value)">
+        <%for(var i=0;i<lab.length;i++){%>
+        <option value="<%=lab[i]%>"><%=lab[i]%></option>
+        <%};%>
+    </select>
