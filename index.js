@@ -72,7 +72,7 @@ fs.readdir(pathforse,function(err,files){
 
 
 app.get('/',(req,res)=>{
-    console.log(arrayspcc,arraycss,arraydwm,arrayse)
+    //console.log(arrayspcc,arraycss,arraydwm,arrayse)
         res.render('first',{spcc:arrayspcc,css:arraycss,dwm:arraydwm,se:arrayse})
     });
 app.get('/showfile/:folder/:name',(req,res)=>{

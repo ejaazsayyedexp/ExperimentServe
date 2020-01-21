@@ -1,7 +1,27 @@
-<div id="spcc" style="visibility: hidden;">
+<style>
+    #spcc{
+        float:left;
+        margin:2rem;
+        width:15rem;
+        height:30rem;
+        border: 3px dotted yellowgreen;
+        
+    }
+    #hash{
+        padding:2px;
+        margin:5px;
+        display: block;
+
+    }
+</style>
+
+
+<div id="spcc"><center>
+    <h3><label>System programming and Compiler Construction</label></h3>
     <%for(var j=0;j<spcc.length;j++){%>
-    <ul style="list-style: none;">
-        <li><a href="/showfile/Experiments-SPCC/<%=spcc[j]%>"><%=spcc[j]%></a></li>
+    <ul style="list-style: disc;float: left;">
+        <li id="hash"><a href="/showfile/Experiments-SPCC/<%=spcc[j]%>"><%=spcc[j]%></a></li>
         <%};%>
     </ul>
+</center>
 </div>

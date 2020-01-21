@@ -1,7 +1,21 @@
-<div id="se" style="visibility: hidden;">
+<style>
+    #se{
+        float:left;
+        margin:2rem;
+        width:15rem;
+        height:30rem;
+        border: 3px dotted yellowgreen;
+    }
+    #hash{
+        padding:2px;
+        margin:5px;
+    }
+</style>
+<div id="se"><center>
+    <h3><label>Software Engineering</label></h3>
     <%for(var j=0;j<se.length;j++){%>
-        <ul style="list-style: none;">
-            <li><a href="/showfile/Experiments-SE/<%=se[j]%>"><%=se[j]%></a></li>
+        <ul style="list-style: none;float: left;">
+            <li id="hash"><a href="/showfile/Experiments-SE/<%=se[j]%>"><%=se[j]%></a></li>
             <%};%>
-        </ul>
+        </ul></center>
 </div>

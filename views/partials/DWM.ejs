@@ -1,7 +1,23 @@
-<div id="dwm" style="visibility: hidden;">
+<style>
+    #dwm{
+        float:left;
+        margin:2rem;
+        width:15rem;
+        height:30rem;
+        border: 3px dotted yellowgreen;
+    }
+    #hash{
+        padding:2px;
+        margin:5px;
+
+    }
+
+</style>
+<div id="dwm"><center>
+    <h3><label>Datawarehouse and Data Mining</label></h3>
     <%for(var j=0;j<dwm.length;j++){%>
-        <ul style="list-style: none;">
-            <li><a href="/showfile/Experiments-DWM/<%=dwm[j]%>"><%=dwm[j]%></a></li>
+        <ul style="list-style: none;float: left;">
+            <li id="hash"><a href="/showfile/Experiments-DWM/<%=dwm[j]%>"><%=dwm[j]%></a></li>
             <%};%>
-        </ul>
+        </ul></center>
 </div>
