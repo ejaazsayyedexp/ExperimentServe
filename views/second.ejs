@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access the required resources here!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+
+<body>
+    <h2 class="center-align">Access the required resources here!</h2>
+
+    <div class="right-align">
+        <a class="waves-effect btn modal-trigger waves-circle waves-light btn-floating" href="#modal1">
+            <i class="material-icons">add</i>
+        </a>
+        </button>
+    </div>
+
+
+
+    <div class="modal" id="modal1">
+        <div class="modal-content">
+            <h4>Upload a file!</h4>
+            <form action="/submittoserver" enctype="multipart/form-data" method="POST">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>File</span>
+                        <input type="file" name="uploadfile" required>
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+                <div class="input-field col s12">
+                    <select name="what" required>
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="Assignments">Assignment</option>
+                        <option value="Outputs">Outputs</option>
+                        <option value="Manuals">Manuals</option>
+                        <option value="References">References</option>
+                    </select>
+                    <label>Resource Select</label>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="waves-effect waves-green btn-flat">Submit</button>
+                </div>
+            </form>
+        </div>
+        <!--<div class="modal-footer">
+            <a href="/submittoserver" class="modal-close waves-effect waves-green btn-flat">Submit</a>
+        </div>-->
+    </div>
+
+    <!--<div class="collection">
+        <h5><a href="/assignment" class="collection-item center-align">Assignments</a></h5>
+        <h5><a href="#" class="collection-item center-align">Outputs</a></h5>
+        <h5><a href="#" class="collection-item center-align">Manuals</a></h5>
+        <h5><a href="#" class="collection-item center-align">References</a></h5>
+    </div>-->
+
+    <div class="row">
+        <div class="col s12">
+            <ul class="tabs" id="tab">
+                <li class="tab col s3"><a href="#test1">Assignments<i class="material-icons">assignment</i></a></li>
+
+                <li class="tab col s3"><a href="#test2">Outputs<i class="material-icons">print</i></a></li>
+                <li class="tab col s3"><a href="#test3">Manuals</a></li>
+                <li class="tab col s3"><a href="#test4">References</a></li>
+            </ul>
+        </div>
+        <div id="test1" class="col s12">
+            <div class="collection">
+            <% for( let i = 0; i < assg.length; i++ ) { %>
+              <a href="/getAssignment/<%=assg[i]%>" class="collection-item"><%-assg[i]%></a>  
+            <% } %>
+        </div>
+
+        </div>
+
+
+
+
+        <div id="test2" class="col s12">
+
+            <!--<a href="/showfile/Experiments-SPCC/<%=//spcc[index]%>" class="collection-item center-align"><%-// spcc[index] %></a>-->
+            <ul class="collapsible popout">
+                <% for( let index = 0; index < subs.length; index++ ) { %>
+                <li>
+                    
+                    <% if (subs[index]=='SPCC') { %>
+                        <div class="collapsible-header"><%- subs[index] %></div>    
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            <% for( let j = 0; j < spcc.length; j++ ) { %>
+                            <a href="/showfile/Experiments-SPCC/<%=spcc[j]%>" class="collection-item"><%- spcc[j] %></a>
+                            <%} %>
+                        </div>
+                    </div>
+                    
+                    <% } else if (subs[index]=='CSS') { %>
+                        <div class="collapsible-header"><%- subs[index] %></div>
+                    <% for( let j = 0; j < css.length; j++ ) { %>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            <a href="/showfile/Experiments-CSS/<%=css[j]%>" class="collection-item"><%- css[j] %></a>
+                        </div>
+                    </div>
+                    <%} %>
+                    <% } else if (subs[index]=='DWM') { %>
+                        <div class="collapsible-header"><%- subs[index] %></div>
+                    <% for( let j = 0; j < dwm.length; j++ ) { %>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            <a href="/showfile/Experiments-DWM/<%=dwm[j]%>" class="collection-item"><%- dwm[j] %></a>
+                        </div>
+                    </div>
+                    <%} %>
+                    <% } else if (subs[index]=='SE') { %>
+                        <div class="collapsible-header"><%- subs[index] %></div>
+                    <% for( let j = 0; j < se.length; j++ ) { %>
+                    <div class="collapsible-body">
+                        <div class="collection">
+                            <a href="/showfile/Experiments-SE/<%=se[j]%>" class="collection-item"><%- se[j] %></a>
+                        </div>
+                    </div>
+                    <%} %>
+                    <% } %>
+                    
+                    
+                </li>
+                <% } %>
+            </ul>
+        </div>
+
+
+
+
+
+        <div id="test3" class="col s12">
+            <div class="collection">
+                <% for( let index = 0; index < subs.length; index++ ) { %>
+                <a href="/Manual/<%- subs[index] %>" class="collection-item center-align"><%= subs[index] %></a>
+                <% } %>
+            </div>
+        </div>
+
+
+
+
+
+        <div id="test4" class="col s12">
+            <div class="collection">
+                <% for( let i = 0; i < ref.length; i++ ) { %>
+                    <a href="/showref/<%- ref[i] %> "  class="collection-item center-align"><%= ref[i] %> </a>
+                <% } %>
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+</body>
+<script>
+    var el = document.getElementById('tab')
+    var instance = M.Tabs.init(el)
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.collapsible');
+        var instances = M.Collapsible.init(elems);
+
+    });
+    //modal
+    document.addEventListener('DOMContentLoaded', () => {
+        var elems = document.querySelectorAll('.modal')
+        var instances = M.Modal.init(elems)
+    });
+    //selection
+    document.addEventListener('DOMContentLoaded',()=>{
+        var elem = document.querySelectorAll('select')
+        var instance = M.FormSelect.init(elem)
+    })
+</script>
+
+</html>
